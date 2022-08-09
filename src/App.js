@@ -4,19 +4,35 @@ import './App.css';
 function App() {
   const [title, setTitle] = useState("this is the title")
   const [description, setDescription] = useState("your description")
-  const [author, setAuthor] = useState("")
+  const [author, setAuthor] = useState("todd")
 
-  console.log(title)
+  // console.log(title)
 
   function formSubmit (e) {
     e.preventDefault()
     console.log("form submitted") //here we are showing we are in full controll of the submit button
 
+    // const comment = {
+    //     title:title, 
+    //     description:description,
+    //     author:author,
+    // }
+
+    const comment = {
+      title, 
+      description,
+      author,
+  } // this only works with variable with the same name and the same variable, only works with javascript and not json  
+
+
+    console.log(comment)
   }
 
   return (
     <div className="App">
+
       <form onSubmit={formSubmit}>
+
           <h1>Comments</h1>
 
           {/* here goes the title */}
@@ -48,6 +64,7 @@ function App() {
           <button>Submit Form</button>
 
       </form>
+
     </div>
   );
 }
