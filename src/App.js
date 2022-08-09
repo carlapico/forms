@@ -8,9 +8,15 @@ function App() {
 
   console.log(title)
 
+  function formSubmit (e) {
+    e.preventDefault()
+    console.log("form submitted") //here we are showing we are in full controll of the submit button
+
+  }
+
   return (
     <div className="App">
-      <form>
+      <form onSubmit={formSubmit}>
           <h1>Comments</h1>
 
           {/* here goes the title */}
