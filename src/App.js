@@ -23,7 +23,7 @@ function App() {
             <textarea value={description} onChange ={(e)=> {setDescription(e.target.value)}} />
             <h2>{description}</h2>
 
-          {/* here goes the drop down menu bar */}
+          {/* here goes the author selection */}
           <label>Author</label>
             <select value ={author} onChange={(e) => {setAuthor(e.target.value)}}>
               <option value="todd">Todd</option>
