@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [title, setTitle] = useState("this is the title")
+  const [description, setDescription] = useState("your description")
+  console.log(title)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form>
+          <h1>Comments</h1>
+          
+          <label>Title</label>
+            <input type="text" value={title} onChange={(e)=> {setTitle (e.target.value)}} />
+            <h3>{title}</h3>
+
+          <label>Description</label>
+            <textarea value={description} onChange ={(e)=> {setDescription(e.target.value)}}></textarea>
+            <h3>{description}</h3>
+      </form>
     </div>
   );
 }
