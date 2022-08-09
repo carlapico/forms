@@ -1,20 +1,35 @@
 import { useState } from 'react';
+import { useEffect } from 'react';
 import './App.css';
 
 function App() {
 
+  const [validForm, setValidForm] = useState(false)
   const[formSubmitted, setFormSubmitted] = useState(false)
-  const [erroMessage, setErrorMessage] = useState("")
-  const [title, setTitle] = useState("this is the title")
+  const [errorMessage, setErrorMessage] = useState("")
+  const [title, setTitle] = useState("")
   const [description, setDescription] = useState("your description")
   const [author, setAuthor] = useState("todd")
+
+  useEffect(() => {
+    //fetch stuff
+    if (title > 3 && description > 10) { // this is counting the characters that are in the string
+      setValidForm(true)
+    }
+  }, [title,description,author]) 
 
   // console.log(title)
 
   // const formSubmit = async (e) // same as the line below 
   async function formSubmit (e) {
+    e.preventDefault()
+
+    if (!validForm){
+      setErrorMessage ("Not a valid form!")
+      return
+    }
+
       try {
-      e.preventDefault()
       console.log("form submitted") //here we are showing we are in full controll of the submit button
       
       // const comment = {
@@ -44,8 +59,11 @@ function App() {
         const data = await results.json() //retrieving the results from the json format into a string 
         
         console.log(data)
+
+
         } catch(error) {
           console.error(error)
+          setErrorMessage("there was an error submitting your comment" + error.toString())
         }
       
     }
@@ -83,7 +101,13 @@ function App() {
             <h2>{author}</h2>
 
           {/* here goes the submit button */}
-          <button>Submit Form</button>
+          {!formSubmitted &&
+              <button>Submit Form</button>
+          }
+            {errorMessage &&
+              <h1>There was an error! 
+                <br />{errorMessage}</h1>
+            } 
 
       </form>
 
