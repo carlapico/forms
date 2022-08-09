@@ -8,7 +8,8 @@ function App() {
 
   // console.log(title)
 
-  function formSubmit (e) {
+  // const formSubmit = async (e) // same as the line below 
+  async function formSubmit (e) {
     e.preventDefault()
     console.log("form submitted") //here we are showing we are in full controll of the submit button
 
@@ -26,6 +27,20 @@ function App() {
 
 
     console.log(comment)
+
+    //really submit it to the api (sending the data to the api) using async/await
+    const results = await fetch ('https://sql.bocacode.com/comments', {
+        method:"POST",
+        headers: {
+            "Content-Type" : "application/json"
+        }, 
+        body: JSON.stringify(comment) //sending the object using the variable comment in JSON format 
+    })
+    console.log(results)
+    const data = await results.json() //retrieving the results from the json format into a string 
+
+    console.log(data)
+
   }
 
   return (
