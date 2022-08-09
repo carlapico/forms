@@ -14,12 +14,12 @@ function App() {
           {/* here goes the title */}
           <label>Title</label>
             <input type="text" value={title} onChange={(e)=> {setTitle (e.target.value)}} />
-            <h3>{title}</h3>
+            <h2>{title}</h2>
 
           {/* here goes the desciption */}
           <label>Description</label>
             <textarea value={description} onChange ={(e)=> {setDescription(e.target.value)}} />
-            <h3>{description}</h3>
+            <h2>{description}</h2>
 
           <label>Author</label>
           <select>
