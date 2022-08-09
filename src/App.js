@@ -38,6 +38,9 @@ function App() {
             </select>
             <h2>{author}</h2>
 
+          {/* here goes the submit button */}
+          <button>Submit Form</button>
+
       </form>
     </div>
   );
