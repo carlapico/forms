@@ -4,8 +4,8 @@ import './App.css';
 
 function App() {
 
-  const [validForm, setValidForm] = useState(false)
   const[formSubmitted, setFormSubmitted] = useState(false)
+  const [validForm, setValidForm] = useState(false)
   const [errorMessage, setErrorMessage] = useState("")
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("your description")
@@ -13,8 +13,10 @@ function App() {
 
   useEffect(() => {
     //fetch stuff
-    if (title > 3 && description > 10) { // this is counting the characters that are in the string
+    if (title.length > 3 && description.length > 10) { // this is counting the characters that are in the string
       setValidForm(true)
+    } else {
+      setValidForm(false)
     }
   }, [title,description,author]) 
 

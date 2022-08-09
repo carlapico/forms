@@ -31,6 +31,10 @@ button {
   cursor: pointer;
 }
 
+button:active {
+  background: steelblue;
+}
+
 h1 {
   color: #f1356d;
 }
