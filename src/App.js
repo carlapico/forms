@@ -27,8 +27,8 @@ function App() {
     if (!validForm){
       setErrorMessage ("Not a valid form!")
       return
-    }
-
+    } 
+    
       try {
       console.log("form submitted") //here we are showing we are in full controll of the submit button
       
@@ -59,7 +59,10 @@ function App() {
         const data = await results.json() //retrieving the results from the json format into a string 
         
         console.log(data)
-
+        setFormSubmitted(true)
+        setErrorMessage("")
+        setValidForm(true)
+        alert("Wow! Submitted")
 
         } catch(error) {
           console.error(error)
