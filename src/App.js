@@ -2,6 +2,9 @@ import { useState } from 'react';
 import './App.css';
 
 function App() {
+
+  const[formSubmitted, setFormSubmitted] = useState(false)
+  const [erroMessage, setErrorMessage] = useState("")
   const [title, setTitle] = useState("this is the title")
   const [description, setDescription] = useState("your description")
   const [author, setAuthor] = useState("todd")
@@ -10,41 +13,45 @@ function App() {
 
   // const formSubmit = async (e) // same as the line below 
   async function formSubmit (e) {
-    e.preventDefault()
-    console.log("form submitted") //here we are showing we are in full controll of the submit button
-
-    // const comment = {
-    //     title:title, 
-    //     description:description,
-    //     author:author,
-    // }
-
-    const comment = {
-      title, 
-      description,
-      author,
-  } // this only works with variable with the same name and the same variable, only works with javascript and not json  
-
-
-    console.log(comment)
-
-    //really submit it to the api (sending the data to the api) using async/await
-    const results = await fetch ('https://sql.bocacode.com/comments', {
-        method:"POST",
-        headers: {
+      try {
+      e.preventDefault()
+      console.log("form submitted") //here we are showing we are in full controll of the submit button
+      
+      // const comment = {
+        //     title:title, 
+        //     description:description,
+        //     author:author,
+        // }
+        
+        const comment = {
+          title, 
+          description,
+          author,
+        } // this only works with variable with the same name and the same variable, only works with javascript and not json  
+        
+        
+        console.log(comment)
+        
+        //really submit it to the api (sending the data to the api) using async/await
+        const results = await fetch ('https://sql.bocacode.com/comments', {
+          method:"POST",
+          headers: {
             "Content-Type" : "application/json"
-        }, 
-        body: JSON.stringify(comment) //sending the object using the variable comment in JSON format 
-    })
-    console.log(results)
-    const data = await results.json() //retrieving the results from the json format into a string 
-
-    console.log(data)
-
-  }
-
-  return (
-    <div className="App">
+          }, 
+          body: JSON.stringify(comment) //sending the object using the variable comment in JSON format 
+        })
+        console.log(results)
+        const data = await results.json() //retrieving the results from the json format into a string 
+        
+        console.log(data)
+        } catch(error) {
+          console.error(error)
+        }
+      
+    }
+    
+    return (
+      <div className="App">
 
       <form onSubmit={formSubmit}>
 
