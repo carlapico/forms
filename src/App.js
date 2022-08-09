@@ -30,7 +30,8 @@ function App() {
             <option value="ludwigson" >Ludwigson</option>
             <option value="ronnie">Ronnie</option>
             <option value="noah">Noah</option>
-            <option value=""selected>Choose One </option>
+            <option value=""selected>Choose One </option> 
+            {/* the default would be the first one unless you put selected */}
           </select>
 
       </form>
