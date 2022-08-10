@@ -12,17 +12,29 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const App = () => {
   return (
   <BrowserRouter>
-    <Routes> 
-        <Route path='about' element={<h4>about route</h4>}/>
-    </Routes>
-
     <Header />
-    <Home />
+      <Routes> 
+          <Route index element={< Home />}/>
+          <Route path='about' element={< About />}/>
+          <Route path='contact' element={< Contact />}/>
+          <Route path='*' element={ <NotFound /> }/>
+      </Routes>
+    <Footer /> 
+
+     {/* <Home />
     <About />
-    <Contact />
-    <Footer />
+  <Contact /> */} 
 
   </BrowserRouter>
+  )
+}
+
+const NotFound = () => {
+  return (
+    <>
+      <h4> Sorry Page not found </h4>
+    </>
+
   )
 }
 
