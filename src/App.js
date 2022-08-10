@@ -7,6 +7,8 @@ function App() {
   const[formSubmitted, setFormSubmitted] = useState(false)
   const [validForm, setValidForm] = useState(false)
   const [errorMessage, setErrorMessage] = useState("")
+  const [form, setForm] = useState({})
+
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("your description")
   const [author, setAuthor] = useState("todd")
@@ -72,7 +74,14 @@ function App() {
         }
       
     }
-    
+
+
+    console.log("this is form =>", form)
+    const updateForm = (event) => {
+      setForm({[event.target.name]: event.target.value})
+    }
+
+
     return (
       <div className="App">
 
@@ -82,7 +91,11 @@ function App() {
 
           {/* here goes the title */}
           <label>Title</label>
-            <input type="text" value={title} onChange={(e)=> {setTitle (e.target.value)}} />
+            <input 
+            type="text" 
+            name= "title"
+            value={form.title} 
+            onChange={(e)=> updateForm(e)} />
             <h2>{title}</h2>
 
           {/* here goes the desciption */}
