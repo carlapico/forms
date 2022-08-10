@@ -4,6 +4,8 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const App = () => {
   return (
@@ -14,7 +16,7 @@ const App = () => {
     <About />
     <Contact />
     <Footer />
-    
+
   </>
   )
 }
