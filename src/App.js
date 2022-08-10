@@ -1,12 +1,16 @@
-import './App.css';
-import Form from './components/Form';
+import Header from './components/Header';
 import About from './pages/About';
+import Contact from './pages/Contact';
+import Footer from './components/Footer';
+import './App.css';
 
 const App = () => {
   return (
   <>
+    <Header />
     <About />
-    <Form />
+    <Contact />
+    <Footer />
   </>
   )
 }
