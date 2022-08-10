@@ -1,9 +1,5 @@
 
 //this is the react way 
-const About = () => {
-    return (
-        <h3>This is about</h3>
-    )
-}
+const About = () => <h3>This is the about page</h3>
 
 export default About
